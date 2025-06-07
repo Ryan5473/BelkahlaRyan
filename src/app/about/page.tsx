@@ -11,6 +11,20 @@ import {
   cardHoverSmall 
 } from '@/utils/animations'
 
+// Composant pour afficher les étoiles de notation
+const Stars = ({ rating }: { rating: number }) => {
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.5 ? true : false;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+  return (
+    <span className="text-yellow-400">
+      {'★'.repeat(fullStars)}
+      {halfStar && '⯨' /* Vous pouvez remplacer par un autre symbole ou une icône */}
+      {'☆'.repeat(emptyStars)}
+    </span>
+  );
+};
+
 export default function About() {
   return (
     <div className="container max-w-7xl mx-auto py-12">
@@ -59,9 +73,10 @@ export default function About() {
             <FaCode className="h-8 w-8 text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">Frontend</h3>
             <ul className="text-secondary space-y-2">
-              <li>React / Next.js</li>
-              <li>TypeScript</li>
-              <li>Tailwind CSS</li>
+              <li>React / Next.js <Stars rating={4} /></li>
+              <li>Angular <Stars rating={4} /></li>
+              <li>TypeScript <Stars rating={3.5} /></li>
+              <li>JavaScript <Stars rating={3.5} /></li>
               <li>HTML5 / CSS3</li>
             </ul>
           </motion.div>
@@ -78,6 +93,9 @@ export default function About() {
               <li>Express</li>
               <li>PostgreSQL</li>
               <li>MongoDB</li>
+              <li>Spring Boot <Stars rating={4} /></li>
+              <li>Symfony <Stars rating={3} /></li>
+              <li>Java <Stars rating={3.5} /></li>
             </ul>
           </motion.div>
           
@@ -178,4 +196,4 @@ export default function About() {
       </motion.section>
     </div>
   )
-} 
+}
