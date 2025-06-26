@@ -3,9 +3,10 @@ export interface Project {
   description: string;
   technologies: string[];
   githubLink: string;
-  demoLink: string;
   image: string;
+  videoId: string;  // keep only videoId, no demoLink
 }
+
 
 export interface Blog {
   title: string;

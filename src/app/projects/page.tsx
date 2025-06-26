@@ -4,6 +4,7 @@ import { projects } from '@/contents/projects'
 import Image from 'next/image'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { fadeInUp, staggerContainer, cardHoverSmall } from '@/utils/animations'
 
 export default function Projects() {
@@ -27,7 +28,7 @@ export default function Projects() {
       </motion.p>
       
       <motion.div 
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
@@ -105,17 +106,14 @@ export default function Projects() {
                   <FaGithub className="h-5 w-5" />
                   <span>Code</span>
                 </motion.a>
-                <motion.a
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+                <Link
+                  href={`/video?title=${encodeURIComponent(project.title)}`}
                   className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
                 >
                   <FaExternalLinkAlt className="h-5 w-5" />
                   <span>Live Demo</span>
-                </motion.a>
+                </Link>
               </motion.div>
             </div>
           </motion.div>
@@ -123,4 +121,4 @@ export default function Projects() {
       </motion.div>
     </div>
   )
-} 
+}
