@@ -1,14 +1,15 @@
 import { Project } from '@/types';
 
 export const projects: Project[] = [
-  {
-    title: 'E-commerce Platform',
-    description: 'A full-stack e-commerce platform built with Next.js, TypeScript, and Tailwind CSS.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe'],
-    githubLink: 'https://github.com',
-    videoId: 'eo17hz0IVDo',  // YouTube video ID only
-    image: '/projects/e-commerce-website.png',
-  },
+ {
+  title: 'ReactNativeDoctorApp',
+  description: 'A complete doctor appointment mobile app built with React Native, featuring booking, notifications, and calendar integration.',
+  technologies: ['React Native', 'Expo', 'Firebase', 'Push Notifications'],
+  githubLink: 'https://github.com', // Remplacez par le vrai lien GitHub si disponible
+  videoId: 'LJiS1_e2nZ4',  // YouTube video ID only
+  image: '/projects/doctor-app.png', // Facultatif : renommez l'image si elle correspond au projet
+}
+,
   {
     title: 'Team Management',
     description: 'A collaborative task management application with real-time updates.',

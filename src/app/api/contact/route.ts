@@ -1,29 +1,38 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
-interface ContactRequestBody {
-  name: string;
-  email: string;
-  message: string;
-}
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    await request.json() as ContactRequestBody
-    // Here you would typically:
-    // 1. Validate the input
-    // 2. Send an email using a service like SendGrid, AWS SES, etc.
-    // 3. Store the message in a database if needed
+    const body = await request.json();
+    const { name, email, message } = body;
 
-    // For now, we'll just simulate a successful response
-    return NextResponse.json(
-      { message: 'Message sent successfully' },
-      { status: 200 }
-    )
-  } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : 'Failed to send message'
-    return NextResponse.json(
-      { message: errorMessage },
-      { status: 500 }
-    )
+    if (!name || !email || !message) {
+      return NextResponse.json({ message: 'All fields are required.' }, { status: 400 });
+    }
+
+    const data = await resend.emails.send({
+      from: 'Contact Form <onboarding@resend.dev>',
+      to: ['rayenbelkahla219@gmail.com'],
+      subject: `New Contact Message from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif;">
+          <h2>New Contact Message</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Message:</strong><br/>${message.replace(/\n/g, '<br/>')}</p>
+        </div>
+      `,
+    });
+
+    if (data.error) {
+      return NextResponse.json({ message: 'Email send failed.' }, { status: 500 });
+    }
+
+    return NextResponse.json({ message: 'Message sent successfully.' }, { status: 200 });
+  } catch (error) {
+    console.error('Error in contact form:', error);
+    return NextResponse.json({ message: 'Server error.' }, { status: 500 });
   }
-} 
+}
