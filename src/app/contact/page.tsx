@@ -21,7 +21,7 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -37,11 +37,15 @@ export default function ContactPage() {
         body: JSON.stringify(formData)
       });
 
-      if (!response.ok) throw new Error();
-
-      setFormData({ name: '', email: '', message: '' });
-      setStatus('success');
-    } catch {
+      if (response.ok) {
+        setFormData({ name: '', email: '', message: '' });
+        setStatus('success');
+      } else {
+        // No throw, just set error status
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
       setStatus('error');
     }
   };
@@ -49,7 +53,7 @@ export default function ContactPage() {
   return (
     <div className="max-w-xl mx-auto p-8">
       <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         <div>
           <label htmlFor="name" className="block mb-1 font-medium">
             Name
@@ -58,10 +62,10 @@ export default function ContactPage() {
             id="name"
             name="name"
             type="text"
-            required
             value={formData.name}
             onChange={handleChange}
             className="w-full border rounded px-3 py-2"
+            autoComplete="name"
           />
         </div>
 
@@ -73,10 +77,10 @@ export default function ContactPage() {
             id="email"
             name="email"
             type="email"
-            required
             value={formData.email}
             onChange={handleChange}
             className="w-full border rounded px-3 py-2"
+            autoComplete="email"
           />
         </div>
 
@@ -87,7 +91,6 @@ export default function ContactPage() {
           <textarea
             id="message"
             name="message"
-            required
             rows={5}
             value={formData.message}
             onChange={handleChange}
@@ -98,16 +101,20 @@ export default function ContactPage() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+          className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition disabled:opacity-50"
         >
           {status === 'loading' ? 'Sending...' : 'Send Message'}
         </button>
 
         {status === 'success' && (
-          <p className="text-green-600 text-center mt-2">Message sent successfully!</p>
+          <p className="text-green-600 text-center mt-2" role="alert">
+            Message sent successfully!
+          </p>
         )}
         {status === 'error' && (
-          <p className="text-red-600 text-center mt-2">Failed to send message.</p>
+          <p className="text-red-600 text-center mt-2" role="alert">
+            Failed to send message.
+          </p>
         )}
       </form>
     </div>
