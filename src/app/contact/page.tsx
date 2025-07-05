@@ -132,6 +132,18 @@ export default function ContactPage() {
             Plan a Meeting for Free
           </a>
         </div>
+
+        {/* Resume PDF Button */}
+        <div className="mt-6 text-center">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 border-2 border-green-600 text-green-600 font-semibold rounded-xl hover:bg-green-600 hover:text-white transition"
+          >
+            View My Resume (PDF)
+          </a>
+        </div>
       </div>
     </div>
   );
