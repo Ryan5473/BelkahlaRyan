@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #007AFF;
-  --color-secondary: #6B7280;
-  --color-dark: #1F2937;
-  --color-light: #F9FAFB;
-  --color-text: #000000;
-  --color-bg: #ffffff;
+  --color-primary: #1F2937;   /* Dark gray/charcoal - main background */
+  --color-secondary: #4B5563; /* Medium gray - secondary texts */
+  --color-dark: #000000;      /* True black - for deep contrast */
+  --color-light: #D1D5DB;     /* Light gray - for subtle highlights */
+  --color-text: #E5E7EB;      /* Very light gray (near white) - text color */
+  --color-bg: #121212;        /* Very dark gray/near black background */
 
   --font-sans: 'Inter', sans-serif;
 
@@ -30,16 +30,30 @@ a {
     @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
   }
   
+  /* Primary button: Dark gray background with light text */
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary/90;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: 1px solid var(--color-light);
   }
-  
+  .btn-primary:hover {
+    background-color: #374151; /* Slightly lighter dark gray */
+    border-color: var(--color-text);
+  }
+
+  /* Secondary button: Slightly lighter gray, subtle */
   .btn-secondary {
-    @apply bg-secondary text-white hover:bg-secondary/90;
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    border: 1px solid var(--color-dark);
   }
-  
+  .btn-secondary:hover {
+    background-color: #6B7280; /* A bit lighter */
+    border-color: var(--color-text);
+  }
+
   .section-title {
-    @apply text-3xl font-bold mb-8 text-center;
+    @apply text-3xl font-bold mb-8 text-center text-[var(--color-text)];
   }
 } 
 
