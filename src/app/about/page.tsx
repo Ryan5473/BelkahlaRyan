@@ -1,5 +1,5 @@
 'use client'
-import { FaCalendarAlt } from 'react-icons/fa'
+import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 
 import { FaCode, FaLaptopCode, FaGraduationCap } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -190,21 +190,25 @@ export default function About() {
 
         {/* Education text box */}
        <div className="relative max-w-5xl mx-auto h-full flex flex-col justify-center px-6 sm:px-10">
-  <div className="bg-white/20 backdrop-blur-md p-8 rounded-lg max-w-full shadow-lg border border-white/20 text-center">
-    <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-md">
-      Engineering Degree in Computer Science
-    </h3>
-    <p className="mb-4 flex justify-center items-center text-white drop-shadow-md space-x-2 flex-wrap gap-2">
-      <span>École Supérieure Privée d&#39;Ingénierie et de Technologies</span>
-      <span className="flex items-center space-x-1">
-        <FaCalendarAlt className="inline-block" />
-        <span>2025</span>
-      </span>
-    </p>
-            <p className="text-white leading-relaxed drop-shadow-sm">
-              Graduated with honors. Focused on software engineering and web development.
-            </p>
-          </div>
+ <div className="bg-white/20 backdrop-blur-md p-8 rounded-lg max-w-full shadow-lg border border-white/20 text-center">
+  <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-md">
+    Engineering Degree in Computer Science
+  </h3>
+  <p className="mb-4 flex justify-center items-center text-white drop-shadow-md space-x-4 flex-wrap gap-2">
+    <span>École Supérieure Privée d&#39;Ingénierie et de Technologies</span>
+    <span className="flex items-center space-x-1">
+      <FaMapMarkerAlt className="inline-block" />
+      <span>Tunisie</span>
+    </span>
+    <span className="flex items-center space-x-1">
+      <FaCalendarAlt className="inline-block" />
+      <span>2025</span>
+    </span>
+  </p>
+  <p className="text-white leading-relaxed drop-shadow-sm">
+    Graduated with honors. Focused on software engineering and web development.
+  </p>
+</div>
         </div>
       </motion.section>
     </div>
