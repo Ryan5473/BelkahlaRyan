@@ -48,14 +48,17 @@ export default function ContactPage() {
 
   return (
     <div className="container max-w-3xl mx-auto py-16 px-6 sm:px-8 lg:px-12">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-10">
-        <h1 className="text-4xl font-extrabold mb-10 text-gray-900 dark:text-gray-100 text-center">
+      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-12 sm:p-14">
+        <h1 className="text-4xl font-extrabold mb-12 text-gray-900 dark:text-gray-100 text-center tracking-tight">
           Contact Me
         </h1>
 
-        <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+        <form onSubmit={handleSubmit} className="space-y-6" noValidate>
           <div>
-            <label htmlFor="name" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="name"
+              className="block mb-2 font-semibold text-gray-800 dark:text-gray-300 tracking-wide"
+            >
               Name
             </label>
             <input
@@ -65,13 +68,16 @@ export default function ContactPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-5 py-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
               autoComplete="name"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="email"
+              className="block mb-2 font-semibold text-gray-800 dark:text-gray-300 tracking-wide"
+            >
               Email
             </label>
             <input
@@ -81,44 +87,51 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-5 py-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-3 focus:ring-indigo-500 focus:border-indigo-500 transition"
               autoComplete="email"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="block mb-3 font-semibold text-gray-700 dark:text-gray-300">
+            <label
+              htmlFor="message"
+              className="block mb-2 font-semibold text-gray-800 dark:text-gray-300 tracking-wide"
+            >
               Message
             </label>
             <textarea
               id="message"
               name="message"
-              rows={6}
+              rows={5}
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-xl px-5 py-4 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition resize-none"
+              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-3 focus:ring-indigo-500 focus:border-indigo-500 transition resize-none"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full px-8 py-4 border-2 border-black text-black font-semibold rounded-xl hover:bg-black hover:text-white transition disabled:opacity-50
-
-"
+            className="w-full max-w-xs mx-auto block px-6 py-3 border-2 border-black text-black font-semibold rounded-lg hover:bg-black hover:text-white transition disabled:opacity-50 text-lg tracking-wide"
           >
             {status === 'loading' ? 'Sending...' : 'Send Message'}
           </button>
         </form>
 
         {status === 'success' && (
-          <p className="mt-6 text-center text-green-500 font-medium" role="alert">
+          <p
+            className="mt-6 text-center text-green-600 font-medium tracking-wide"
+            role="alert"
+          >
             Message sent successfully!
           </p>
         )}
         {status === 'error' && (
-          <p className="mt-6 text-center text-red-500 font-medium" role="alert">
+          <p
+            className="mt-6 text-center text-red-600 font-medium tracking-wide"
+            role="alert"
+          >
             Failed to send message.
           </p>
         )}
@@ -126,11 +139,10 @@ export default function ContactPage() {
         {/* Plan Meeting Button */}
         <div className="mt-10 text-center">
           <a
-            href="https://koalendar.com/e/meet-with-rayen-belkahla" // replace with your link
+            href="https://koalendar.com/e/meet-with-rayen-belkahla"
             target="_blank"
             rel="noopener noreferrer"
-            className="iinline-block px-8 py-4 border-2 border-black text-black font-semibold rounded-xl hover:bg-black hover:text-white transition
-"
+            className="inline-block px-6 py-3 border-2 border-black text-black font-semibold rounded-lg hover:bg-black hover:text-white transition text-base tracking-wide"
           >
             Plan a Meeting for Free
           </a>
@@ -142,8 +154,7 @@ export default function ContactPage() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 border-2 border-black text-black font-semibold rounded-xl hover:bg-black hover:text-white transition
-"
+            className="inline-block px-6 py-3 border-2 border-black text-black font-semibold rounded-lg hover:bg-black hover:text-white transition text-base tracking-wide"
           >
             View My Resume (PDF)
           </a>
