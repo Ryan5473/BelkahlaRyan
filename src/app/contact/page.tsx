@@ -104,7 +104,9 @@ export default function ContactPage() {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-4 rounded-xl transition disabled:opacity-50"
+            className="w-full px-8 py-4 border-2 border-black text-black font-semibold rounded-xl hover:bg-black hover:text-white transition disabled:opacity-50
+
+"
           >
             {status === 'loading' ? 'Sending...' : 'Send Message'}
           </button>
@@ -127,7 +129,8 @@ export default function ContactPage() {
             href="https://koalendar.com/e/meet-with-rayen-belkahla" // replace with your link
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 border-2 border-indigo-600 text-indigo-600 font-semibold rounded-xl hover:bg-indigo-600 hover:text-white transition"
+            className="iinline-block px-8 py-4 border-2 border-black text-black font-semibold rounded-xl hover:bg-black hover:text-white transition
+"
           >
             Plan a Meeting for Free
           </a>
@@ -139,7 +142,8 @@ export default function ContactPage() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 border-2 border-green-600 text-green-600 font-semibold rounded-xl hover:bg-green-600 hover:text-white transition"
+            className="inline-block px-8 py-4 border-2 border-black text-black font-semibold rounded-xl hover:bg-black hover:text-white transition
+"
           >
             View My Resume (PDF)
           </a>

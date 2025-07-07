@@ -21,7 +21,7 @@ export default function Hero() {
           <motion.h1 
             className="text-4xl md:text-6xl font-bold mb-6"
             {...fadeInUp}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.3 }} 
           >
             Hi, I&apos;m <motion.span 
               className="text-primary"

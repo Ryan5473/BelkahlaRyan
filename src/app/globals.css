@@ -3,7 +3,7 @@
 @theme {
   --color-primary: #1F2937;   /* Dark gray/charcoal - main background */
   --color-secondary: #4B5563; /* Medium gray - secondary texts */
-  --color-dark: #000000;      /* True black - for deep contrast */
+  --color-dark: #D1D5DB;      /* True black - for deep contrast */
   --color-light: #D1D5DB;     /* Light gray - for subtle highlights */
   --color-text: #E5E7EB;      /* Very light gray (near white) - text color */
   --color-bg: #121212;        /* Very dark gray/near black background */

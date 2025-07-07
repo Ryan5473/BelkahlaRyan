@@ -7,7 +7,7 @@ export const projects: Project[] = [
   technologies: ['React Native', 'Expo', 'Firebase', 'Push Notifications'],
   githubLink: 'https://github.com', // Remplacez par le vrai lien GitHub si disponible
   videoId: 'LJiS1_e2nZ4',  // YouTube video ID only
-  image: '/projects/doctor-app.png', // Facultatif : renommez l'image si elle correspond au projet
+  image: '/projects/task-manager.webp', // Facultatif : renommez l'image si elle correspond au projet
 }
 ,
   {

@@ -1,4 +1,8 @@
+
 'use client'
+import { FaCalendarAlt } from 'react-icons/fa'
+
+
 
 import { FaCode, FaLaptopCode, FaGraduationCap } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -10,20 +14,6 @@ import {
   cardHover, 
   cardHoverSmall 
 } from '@/utils/animations'
-
-// Composant pour afficher les étoiles de notation
-const Stars = ({ rating }: { rating: number }) => {
-  const fullStars = Math.floor(rating);
-  const halfStar = rating % 1 >= 0.5 ? true : false;
-  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-  return (
-    <span className="text-yellow-400">
-      {'★'.repeat(fullStars)}
-      {halfStar && '⯨' /* Vous pouvez remplacer par un autre symbole ou une icône */}
-      {'☆'.repeat(emptyStars)}
-    </span>
-  );
-};
 
 export default function About() {
   return (
@@ -53,12 +43,19 @@ export default function About() {
         {...fadeIn}
         transition={{ delay: 0.2 }}
       >
-        <motion.h2 
-          className="section-title"
-          {...fadeInUp}
-        >
-          Skills
-        </motion.h2>
+         <motion.h2
+            className="text-4xl md:text-4xl font-bold mb-6 text-center"
+            {...fadeInUp}
+            transition={{ delay: 0.3 }} 
+          >
+            <motion.span 
+              className="text-primary"
+              {...fadeIn}
+              transition={{ delay: 0.8 }}
+            >
+             Skills
+            </motion.span>
+          </motion.h2>
         <motion.div 
           className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={staggerContainer}
@@ -73,10 +70,10 @@ export default function About() {
             <FaCode className="h-8 w-8 text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">Frontend</h3>
             <ul className="text-secondary space-y-2">
-              <li>React / Next.js <Stars rating={4} /></li>
-              <li>Angular <Stars rating={4} /></li>
-              <li>TypeScript <Stars rating={3.5} /></li>
-              <li>JavaScript <Stars rating={3.5} /></li>
+              <li>React / Next.js</li>
+              <li>Angular</li>
+              <li>TypeScript</li>
+              <li>JavaScript</li>
               <li>HTML5 / CSS3</li>
             </ul>
           </motion.div>
@@ -93,9 +90,9 @@ export default function About() {
               <li>Express</li>
               <li>PostgreSQL</li>
               <li>MongoDB</li>
-              <li>Spring Boot <Stars rating={4} /></li>
-              <li>Symfony <Stars rating={3} /></li>
-              <li>Java <Stars rating={3.5} /></li>
+              <li>Spring Boot</li>
+              <li>Symfony</li>
+              <li>Java</li>
             </ul>
           </motion.div>
           
@@ -122,12 +119,19 @@ export default function About() {
         {...fadeIn}
         transition={{ delay: 0.4 }}
       >
-        <motion.h2 
-          className="section-title"
-          {...fadeInUp}
-        >
-          Experience
-        </motion.h2>
+       <motion.h1 
+            className="text-4xl md:text-4xl font-bold mb-6 text-center"
+            {...fadeInUp}
+            transition={{ delay: 0.3 }} 
+          >
+            <motion.span 
+              className="text-primary"
+              {...fadeIn}
+              transition={{ delay: 0.8 }}
+            >
+              Experience
+            </motion.span>
+          </motion.h1>
         <motion.div 
           className="max-w-3xl mx-auto space-y-8"
           variants={staggerContainer}
@@ -164,35 +168,47 @@ export default function About() {
         </motion.div>
       </motion.section>
 
-      {/* Education Section */}
-      <motion.section
-        {...fadeIn}
+      {/* Education Title (like Experience) */}
+      <motion.h1
+        className="text-4xl md:text-4xl font-bold mb-6 text-center text-primary"
+        {...fadeInUp}
         transition={{ delay: 0.6 }}
       >
-        <motion.h2 
-          className="section-title"
-          {...fadeInUp}
-        >
-          Education
-        </motion.h2>
-        <motion.div 
-          className="max-w-3xl mx-auto"
-          variants={staggerContainer}
-          initial="initial"
-          animate="animate"
-        >
-          <motion.div 
-            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            <h3 className="text-xl font-semibold mb-2">Bachelor of Science in Computer Science</h3>
-            <p className="text-primary mb-2">ESPRIT • 2019 - 2020</p>
-            <p className="text-secondary">
+        Education
+      </motion.h1>
+
+      {/* Education Section with bigger background image */}
+      <motion.section
+        {...fadeIn}
+        transition={{ delay: 0.7 }}
+        className="relative rounded-lg shadow-md overflow-hidden"
+        style={{ height: '500px' }}  // fixed height to show full image nicely
+      >
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/Esprit.jpg)' }}
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+        {/* Education text box */}
+       <div className="relative max-w-5xl mx-auto h-full flex flex-col justify-center px-10">
+  <div className="bg-white/20 backdrop-blur-md p-8 rounded-lg max-w-full shadow-lg border border-white/20">
+    <h3 className="text-xl font-semibold mb-3 text-white drop-shadow-md">
+      Engineering Degree in Computer Science
+    </h3>
+    <p className="mb-4 flex items-center text-white drop-shadow-md space-x-2">
+      <span>École Supérieure Privée d'Ingénierie et de Technologies</span>
+      <span className="flex items-center space-x-1">
+        <FaCalendarAlt className="inline-block" />
+        <span>2025</span>
+      </span>
+    </p>
+            <p className="text-white leading-relaxed drop-shadow-sm">
               Graduated with honors. Focused on software engineering and web development.
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </motion.section>
     </div>
   )
