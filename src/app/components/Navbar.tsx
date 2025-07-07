@@ -1,10 +1,10 @@
-'use client'
+// src/app/components/Navbar.tsx
+"use client";
 
-import Link from 'next/link'
-import Image from 'next/image'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import Link from "next/link";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -14,20 +14,17 @@ export default function Navbar() {
   };
 
   const menuItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/blogs', label: 'Blogs' },
-    { href: '/contact', label: 'Contact' },
-   
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/blogs", label: "Blogs" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
     <nav className="fixed w-full bg-white backdrop-blur-sm border-b border-black/10 z-50">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          
-
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
@@ -64,7 +61,7 @@ export default function Navbar() {
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className="md:hidden"
@@ -94,5 +91,5 @@ export default function Navbar() {
         </AnimatePresence>
       </div>
     </nav>
-  )
+  );
 }

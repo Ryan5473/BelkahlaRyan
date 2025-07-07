@@ -1,8 +1,5 @@
-
 'use client'
 import { FaCalendarAlt } from 'react-icons/fa'
-
-
 
 import { FaCode, FaLaptopCode, FaGraduationCap } from 'react-icons/fa'
 import { motion } from 'framer-motion'
@@ -31,7 +28,7 @@ export default function About() {
         {...fadeInUp}
       >
         <p className="text-lg text-secondary max-w-3xl mx-auto text-center">
-          I&apos;m a passionate Full Stack Developer with expertise in building modern web applications.
+          I&#39;m a passionate Full Stack Developer with expertise in building modern web applications.
           With a strong foundation in both frontend and backend technologies, I create seamless
           user experiences and robust server-side solutions.
         </p>
@@ -198,7 +195,7 @@ export default function About() {
       Engineering Degree in Computer Science
     </h3>
     <p className="mb-4 flex items-center text-white drop-shadow-md space-x-2">
-      <span>École Supérieure Privée d'Ingénierie et de Technologies</span>
+      <span>École Supérieure Privée d&#39;Ingénierie et de Technologies</span>
       <span className="flex items-center space-x-1">
         <FaCalendarAlt className="inline-block" />
         <span>2025</span>
