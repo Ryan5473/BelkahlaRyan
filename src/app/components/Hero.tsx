@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaLaptopCode } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { fadeInUp, fadeIn, scaleIn } from '@/utils/animations';
 
@@ -28,7 +28,7 @@ export default function Hero() {
               {...fadeIn}
               transition={{ delay: 0.8 }}
             >
-              Belkahla.Ryan
+              Ryan.B
             </motion.span>
           </motion.h1>
           <motion.p 
@@ -36,7 +36,7 @@ export default function Hero() {
             {...fadeInUp}
             transition={{ delay: 0.4 }}
           >
-            Software enginner  | Web development  Enthusiast 
+            Software engineer <FaLaptopCode className="inline-block ml-2 text-primary" /> | Web development Enthusiast
           </motion.p>
           <motion.div 
             className="flex justify-center space-x-4 mb-8"
@@ -106,4 +106,4 @@ export default function Hero() {
       </div>
     </section>
   );
-} 
+}
