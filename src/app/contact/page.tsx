@@ -1,5 +1,3 @@
-
-
 'use client';
 
 import { useState } from 'react';
@@ -50,8 +48,16 @@ export default function ContactPage() {
 
   return (
     <div className="container max-w-3xl mx-auto py-16 px-6 sm:px-8 lg:px-12">
-      <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-xl p-12 sm:p-14">
-        <h1 className="text-4xl font-extrabold mb-12 text-gray-900 dark:text-gray-100 text-center tracking-tight">
+      <div
+        className="
+          rounded-3xl p-8 sm:p-10
+          bg-white/10 dark:bg-gray-900/30
+          backdrop-blur-md
+          border border-white/30 dark:border-gray-300/20
+          shadow-lg
+        "
+      >
+        <h1 className="text-4xl font-extrabold mb-12 text-white text-center tracking-tight">
           Contact Me
         </h1>
 
@@ -59,7 +65,7 @@ export default function ContactPage() {
           <div>
             <label
               htmlFor="name"
-              className="block mb-2 font-semibold text-gray-800 dark:text-gray-300 tracking-wide"
+              className="block mb-2 font-semibold text-white tracking-wide"
             >
               Name
             </label>
@@ -70,7 +76,13 @@ export default function ContactPage() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-3 focus:ring-black dark:focus:ring-white focus:border-black transition"
+              className="
+                w-full border border-white/40 rounded-lg px-4 py-2.5
+                bg-white/10 dark:bg-gray-800/40
+                text-white placeholder-white/70
+                focus:outline-none focus:ring-2 focus:ring-white focus:border-white
+                transition
+              "
               autoComplete="name"
             />
           </div>
@@ -78,7 +90,7 @@ export default function ContactPage() {
           <div>
             <label
               htmlFor="email"
-              className="block mb-2 font-semibold text-gray-800 dark:text-gray-300 tracking-wide"
+              className="block mb-2 font-semibold text-white tracking-wide"
             >
               Email
             </label>
@@ -89,7 +101,13 @@ export default function ContactPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-3 focus:ring-black dark:focus:ring-white focus:border-black transition"
+              className="
+                w-full border border-white/40 rounded-lg px-4 py-2.5
+                bg-white/10 dark:bg-gray-800/40
+                text-white placeholder-white/70
+                focus:outline-none focus:ring-2 focus:ring-white focus:border-white
+                transition
+              "
               autoComplete="email"
             />
           </div>
@@ -97,7 +115,7 @@ export default function ContactPage() {
           <div>
             <label
               htmlFor="message"
-              className="block mb-2 font-semibold text-gray-800 dark:text-gray-300 tracking-wide"
+              className="block mb-2 font-semibold text-white tracking-wide"
             >
               Message
             </label>
@@ -108,14 +126,26 @@ export default function ContactPage() {
               value={formData.message}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-3 focus:ring-black dark:focus:ring-white focus:border-black transition resize-none"
+              className="
+                w-full border border-white/40 rounded-lg px-4 py-2.5
+                bg-white/10 dark:bg-gray-800/40
+                text-white placeholder-white/70
+                focus:outline-none focus:ring-2 focus:ring-white focus:border-white
+                transition resize-none
+              "
             />
           </div>
 
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="w-full max-w-xs mx-auto block px-4 py-2 border-2 border-black dark:border-white text-black dark:text-white font-medium rounded-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition text-base tracking-wide disabled:opacity-50"
+            className="
+              w-full max-w-xs mx-auto block px-6 py-2
+              border-2 border-white
+              text-white font-semibold rounded-md
+              hover:bg-white hover:text-black
+              transition text-sm tracking-wide disabled:opacity-50
+            "
           >
             {status === 'loading' ? 'Sending...' : 'Send Message'}
           </button>
@@ -123,7 +153,7 @@ export default function ContactPage() {
 
         {status === 'success' && (
           <p
-            className="mt-6 text-center text-green-600 font-medium tracking-wide"
+            className="mt-6 text-center text-green-400 font-medium tracking-wide"
             role="alert"
           >
             Message sent successfully!
@@ -131,7 +161,7 @@ export default function ContactPage() {
         )}
         {status === 'error' && (
           <p
-            className="mt-6 text-center text-red-600 font-medium tracking-wide"
+            className="mt-6 text-center text-red-400 font-medium tracking-wide"
             role="alert"
           >
             Failed to send message.
@@ -144,7 +174,10 @@ export default function ContactPage() {
             href="https://koalendar.com/e/meet-with-rayen-belkahla"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-4 py-2 border-2 border-black dark:border-white text-black dark:text-white font-medium rounded-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition text-sm tracking-wide"
+            className="
+              inline-block px-6 py-2 border-2 border-white text-white font-semibold rounded-md
+              hover:bg-white hover:text-black transition text-sm tracking-wide
+            "
           >
             Plan a Meeting for Free
           </a>
@@ -156,7 +189,10 @@ export default function ContactPage() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-4 py-2 border-2 border-black dark:border-white text-black dark:text-white font-medium rounded-md hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition text-sm tracking-wide"
+            className="
+              inline-block px-6 py-2 border-2 border-white text-white font-semibold rounded-md
+              hover:bg-white hover:text-black transition text-sm tracking-wide
+            "
           >
             View My Resume (PDF)
           </a>
@@ -165,6 +201,7 @@ export default function ContactPage() {
     </div>
   );
 }
+
 
 /*
 

@@ -11,7 +11,7 @@ export default function Projects() {
   return (
     <div className="container max-w-7xl mx-auto py-12">
       <motion.h1 
-        className="text-4xl font-bold mb-4 text-center"
+        className="text-4xl font-bold mb-4 text-center text-white"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -19,7 +19,7 @@ export default function Projects() {
         My Projects
       </motion.h1>
       <motion.p 
-        className="text-lg text-secondary mb-24 text-center"
+        className="text-lg mb-24 text-center text-white/90"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -36,7 +36,7 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
+            className="bg-white/10 dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
             variants={fadeInUp}
             {...cardHoverSmall}
           >
@@ -56,14 +56,14 @@ export default function Projects() {
             
             <div className="p-6">
               <motion.h3 
-                className="text-xl font-semibold mb-2"
+                className="text-xl font-semibold mb-2 text-white"
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 {project.title}
               </motion.h3>
               <motion.p 
-                className="text-secondary mb-4"
+                className="mb-4 text-white/80"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -80,7 +80,7 @@ export default function Projects() {
                 {project.technologies.map((tech, techIndex) => (
                   <motion.span
                     key={techIndex}
-                    className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                    className="px-3 py-1 bg-white/10 text-white rounded-full text-sm"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -99,7 +99,7 @@ export default function Projects() {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-primary transition-colors"
                   whileHover={{ x: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -109,7 +109,7 @@ export default function Projects() {
 
                 <Link
                   href={`/video?title=${encodeURIComponent(project.title)}`}
-                  className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-white hover:text-primary transition-colors"
                 >
                   <FaExternalLinkAlt className="h-5 w-5" />
                   <span>Live Demo</span>

@@ -11,7 +11,7 @@ export default function Blogs() {
     <section className="py-20">
       <div className="container max-w-7xl mx-auto px-4">
         <motion.h2 
-          className="text-3xl font-bold mb-12 text-center"
+          className="text-3xl font-bold mb-12 text-center text-white drop-shadow-lg"
           {...fadeInUp}
         >
           Latest Blog Posts
@@ -26,13 +26,13 @@ export default function Blogs() {
           {blogs.map((blog) => (
             <motion.article
               key={blog.slug}
-              className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
+              className="bg-white/90 dark:bg-dark/70 rounded-lg shadow-md p-6"
               variants={fadeInUp}
               {...cardHoverSmall}
             >
               <Link href={`/blogs/${blog.slug}`}>
                 <motion.h3 
-                  className="text-xl font-semibold mb-2 hover:text-primary transition-colors"
+                  className="text-xl font-semibold mb-2 text-gray-900 dark:text-white hover:text-primary transition-colors drop-shadow-md"
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
@@ -40,7 +40,7 @@ export default function Blogs() {
                 </motion.h3>
               </Link>
               <motion.p 
-                className="text-gray-600 dark:text-gray-300 mb-4"
+                className="text-gray-700 dark:text-gray-300 mb-4 drop-shadow-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -48,7 +48,7 @@ export default function Blogs() {
                 {blog.excerpt}
               </motion.p>
               <motion.div 
-                className="flex items-center text-sm text-gray-500 dark:text-gray-400 space-x-4"
+                className="flex items-center text-sm text-gray-600 dark:text-gray-400 space-x-4 drop-shadow"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -84,7 +84,7 @@ export default function Blogs() {
           >
             <Link
               href="/blogs"
-              className="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+              className="inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors drop-shadow-lg"
             >
               View All Posts
             </Link>
@@ -93,4 +93,4 @@ export default function Blogs() {
       </div>
     </section>
   );
-} 
+}

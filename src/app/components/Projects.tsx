@@ -11,7 +11,10 @@ export default function Projects() {
   return (
     <section className="py-20">
       <div className="container max-w-7xl mx-auto px-4">
-        <motion.h2 className="text-3xl font-bold mb-12 text-center" {...fadeInUp}>
+        <motion.h2 
+          className="text-3xl font-bold mb-12 text-center text-white drop-shadow-lg" 
+          {...fadeInUp}
+        >
           Featured Projects
         </motion.h2>
 
@@ -24,7 +27,7 @@ export default function Projects() {
           {projects.map((project) => (
             <motion.article
               key={project.title}
-              className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
+              className="bg-white/90 dark:bg-dark/70 rounded-lg shadow-md p-6"
               variants={fadeInUp}
               {...cardHoverSmall}
             >
@@ -39,14 +42,14 @@ export default function Projects() {
               </div>
 
               <motion.h3
-                className="text-xl font-semibold mb-2"
+                className="text-xl font-semibold mb-2 text-gray-900 dark:text-white drop-shadow-md"
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
                 {project.title}
               </motion.h3>
 
-              <motion.p className="text-gray-600 dark:text-gray-300 mb-4">
+              <motion.p className="text-gray-700 dark:text-gray-300 mb-4 drop-shadow-sm">
                 {project.description}
               </motion.p>
 
@@ -54,7 +57,7 @@ export default function Projects() {
                 {project.technologies.map((tech) => (
                   <motion.span
                     key={tech}
-                    className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                    className="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm drop-shadow"
                   >
                     {tech}
                   </motion.span>
@@ -66,7 +69,7 @@ export default function Projects() {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors drop-shadow-md"
                 >
                   <FaGithub className="h-5 w-5" />
                   <span>Code</span>
@@ -74,7 +77,7 @@ export default function Projects() {
 
                 <Link
                   href={`/video?title=${encodeURIComponent(project.title)}`}
-                  className="flex items-center gap-2 text-secondary hover:text-primary transition-colors"
+                  className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors drop-shadow-md"
                 >
                   <FaExternalLinkAlt className="h-5 w-5" />
                   <span>Live Demo</span>
