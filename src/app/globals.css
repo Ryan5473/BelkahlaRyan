@@ -78,15 +78,17 @@ a {
   
 }
 body {
-  background-image: url('/pexels-life-of-pix-8892.jpg'); /* put your image in /public folder */
+  background-image: url('/pexels-life-of-pix-8892.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: scroll; /* scroll on all devices */
   min-height: 100vh;
-  /* Optional: add a subtle overlay */
   position: relative;
   z-index: 0;
 }
+
+
 
 body::before {
   content: "";

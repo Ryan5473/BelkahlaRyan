@@ -8,9 +8,9 @@ import { fadeInUp, staggerContainer, cardHoverSmall } from '@/utils/animations'
 
 export default function Blogs() {
   return (
-    <div className="container max-w-7xl mx-auto py-12">
+    <div className="container max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <motion.h1 
-        className="text-4xl font-bold mb-8 text-center"
+        className="text-4xl sm:text-5xl font-bold mb-12 text-center text-white"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -27,13 +27,13 @@ export default function Blogs() {
         {blogs.map((blog, index) => (
           <motion.article
             key={index}
-            className="bg-white dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
+            className="bg-white/10 dark:bg-dark/50 backdrop-blur-md border border-white/10 rounded-lg shadow-md overflow-hidden"
             variants={fadeInUp}
             {...cardHoverSmall}
           >
             <div className="p-6">
               <motion.h2 
-                className="text-xl font-semibold mb-2"
+                className="text-xl font-semibold mb-2 text-white"
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -43,7 +43,7 @@ export default function Blogs() {
               </motion.h2>
               
               <motion.p 
-                className="text-secondary mb-4"
+                className="text-white/80 mb-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -52,7 +52,7 @@ export default function Blogs() {
               </motion.p>
               
               <motion.div 
-                className="flex items-center gap-4 text-sm text-secondary"
+                className="flex items-center gap-4 text-sm text-white/70"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
@@ -79,4 +79,4 @@ export default function Blogs() {
       </motion.div>
     </div>
   )
-} 
+}

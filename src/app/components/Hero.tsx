@@ -31,13 +31,16 @@ export default function Hero() {
           >
             Hi, I&apos;m Ryan.B
           </motion.h1>
-          <motion.p 
-            className="text-xl md:text-2xl text-gray-200 drop-shadow-md mb-8 flex justify-center items-center"
-            {...fadeInUp}
-            transition={{ delay: 0.4 }}
-          >
-            Software engineer <FaLaptopCode className="inline-block ml-2 text-white drop-shadow-md" /> | Web development Enthusiast
-          </motion.p>
+   <motion.p 
+  className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 drop-shadow-md mb-8 flex flex-wrap justify-center items-center gap-x-2 text-center text-pretty"
+  {...fadeInUp}
+  transition={{ delay: 0.4 }}
+>
+  Software Engineer
+  <FaLaptopCode className="inline-block text-white drop-shadow-md" />
+  | Web Dev Enthusiast
+</motion.p>
+
           <motion.div 
             className="flex justify-center space-x-4 mb-8"
             {...fadeInUp}
