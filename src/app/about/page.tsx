@@ -1,6 +1,7 @@
 'use client'
 import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { FaCode, FaLaptopCode, FaGraduationCap } from 'react-icons/fa';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -107,11 +108,13 @@ export default function About() {
 
         <div className="flex flex-col sm:flex-row items-center gap-8 animate-[impact_0.5s_ease-in-out]">
           {/* School Image */}
-          <img
-            src="/Esprit.jpg"
-            alt="École Supérieure Privée d'Ingénierie et de Technologies"
-            className="w-full sm:w-1/2 rounded-lg shadow-lg"
-          />
+         <Image
+  src="/Esprit.jpg"
+  alt="École Supérieure Privée d'Ingénierie et de Technologies"
+  width={800} // specify actual width in pixels
+  height={600} // specify actual height in pixels
+  className="w-full sm:w-1/2 rounded-lg shadow-lg object-cover"
+/>
 
           {/* Degree Info */}
           <div className="flex-1">
