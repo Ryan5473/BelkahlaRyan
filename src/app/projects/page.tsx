@@ -2,12 +2,14 @@
 
 import { projects } from '@/contents/projects'
 import Image from 'next/image'
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+import { FaGithub, FaExternalLinkAlt, FaLock } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { fadeInUp, staggerContainer, cardHoverSmall } from '@/utils/animations'
 
 export default function Projects() {
+  const linksLocked = true; // 👉 flip this to false to unlock
+
   return (
     <div className="container max-w-7xl mx-auto py-12">
       <motion.h1 
@@ -18,6 +20,7 @@ export default function Projects() {
       >
         My Projects
       </motion.h1>
+
       <motion.p 
         className="text-lg mb-24 text-center text-white/90"
         initial={{ opacity: 0, y: 20 }}
@@ -62,6 +65,7 @@ export default function Projects() {
               >
                 {project.title}
               </motion.h3>
+
               <motion.p 
                 className="mb-4 text-white/80"
                 initial={{ opacity: 0 }}
@@ -90,35 +94,51 @@ export default function Projects() {
               </motion.div>
               
               <motion.div 
-                className="flex gap-4"
+                className="flex gap-4 items-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
               >
-                <motion.a
-                  href={project.githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white hover:text-primary transition-colors"
-                  whileHover={{ x: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <FaGithub className="h-5 w-5" />
-                  <span>Code</span>
-                </motion.a>
+                {linksLocked ? (
+                  <div className="flex items-center gap-2 text-white/50 cursor-not-allowed">
+                    <FaGithub className="h-5 w-5" />
+                    <span>Code</span>
+                    <FaLock className="h-4 w-4" />
+                  </div>
+                ) : (
+                  <motion.a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white hover:text-primary transition-colors"
+                    whileHover={{ x: 5 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FaGithub className="h-5 w-5" />
+                    <span>Code</span>
+                  </motion.a>
+                )}
 
-                <Link
-                  href={`/video?title=${encodeURIComponent(project.title)}`}
-                  className="flex items-center gap-2 text-white hover:text-primary transition-colors"
-                >
-                  <FaExternalLinkAlt className="h-5 w-5" />
-                  <span>Live Demo</span>
-                </Link>
+                {linksLocked ? (
+                  <div className="flex items-center gap-2 text-white/50 cursor-not-allowed">
+                    <FaExternalLinkAlt className="h-5 w-5" />
+                    <span>Live Demo</span>
+                    <FaLock className="h-4 w-4" />
+                  </div>
+                ) : (
+                  <Link
+                    href={`/video?title=${encodeURIComponent(project.title)}`}
+                    className="flex items-center gap-2 text-white hover:text-primary transition-colors"
+                  >
+                    <FaExternalLinkAlt className="h-5 w-5" />
+                    <span>Live Demo</span>
+                  </Link>
+                )}
               </motion.div>
             </div>
           </motion.div>
         ))}
       </motion.div>
     </div>
-  )
+  );
 }

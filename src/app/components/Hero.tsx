@@ -38,7 +38,7 @@ export default function Hero() {
 >
   Software Engineer
   <FaLaptopCode className="inline-block text-white drop-shadow-md" />
-  | Web Dev Enthusiast
+  | full Stack Developer
 </motion.p>
 
           <motion.div 
@@ -103,7 +103,32 @@ export default function Hero() {
               >
                 Contact Me
               </Link>
+
+
+
+
             </motion.div>
+
+<motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+                      <Link
+  href="/resume.pdf"
+  className="inline-block w-full bg-gray-700 md:w-auto text-white px-8 py-3 rounded-lg hover:bg-gray-600 transition-colors drop-shadow-md text-center"
+>
+  View My Resume (PDF)
+</Link>
+
+
+
+
+            </motion.div>
+
+
+
+  
+
           </motion.div>
         </div>
       </div>
