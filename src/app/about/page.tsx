@@ -68,37 +68,41 @@ export default function About() {
       </section>
 
       {/* Experience Section */}
-      <section className="mb-16 px-4 max-w-3xl mx-auto">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-10 text-center text-white">
-          Experience
-        </h1>
+<section className="mb-16 px-4 max-w-3xl mx-auto">
+  <h1 className="text-3xl sm:text-4xl font-bold mb-10 text-center text-white">
+    Experience
+  </h1>
 
-        {/* Job Entry 1 */}
-        <div className="mb-10 last:mb-0 animate-[impact_0.5s_ease-in-out]">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-600 pb-4">
-            <h3 className="text-xl font-semibold text-white">Senior Full Stack Developer</h3>
-            <p className="text-sm sm:text-base text-gray-300 mt-1 sm:mt-0">IT solutions • 2022 - Present</p>
-          </div>
-          <ul className="list-disc list-inside text-gray-200 mt-4 space-y-2 max-w-xl mx-auto sm:mx-0">
-            <li>Led development of multiple web applications using React and Node.js</li>
-            <li>Implemented CI/CD pipelines reducing deployment time by 50%</li>
-            <li>Mentored junior developers and conducted code reviews</li>
-          </ul>
-        </div>
+  {/* Job Entry 1 */}
+  <div className="mb-10 last:mb-0 animate-[impact_0.5s_ease-in-out]">
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-600 pb-4">
+      <h3 className="text-xl font-semibold text-white">Software Intern</h3>
+      <p className="text-sm sm:text-base text-gray-300 mt-1 sm:mt-0">IT Solution • Feb 2025 – Jul 2025 • Monastir, Tunisia</p>
+    </div>
+    <ul className="list-disc list-inside text-gray-200 mt-4 space-y-2 max-w-xl mx-auto sm:mx-0">
+      <li>Built healthcare system for 1,500+ patient records with Spring Boot microservices.</li>
+      <li>Designed secure DB schemas and enforced user roles with Spring Security.</li>
+      <li>Used Kafka for service messaging, improving system reliability.</li>
+      <li>Dockerized legacy apps, reducing deployment errors by 40%.</li>
+      <li>Set up CI/CD pipelines, cutting release time by 30%.</li>
+    </ul>
+  </div>
 
-        {/* Job Entry 2 */}
-        <div className="animate-[impact_0.5s_ease-in-out]">
-          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-600 pb-4">
-            <h3 className="text-xl font-semibold text-white">Full Stack Developer</h3>
-            <p className="text-sm sm:text-base text-gray-300 mt-1 sm:mt-0">IT solution • 2018 - 2020</p>
-          </div>
-          <ul className="list-disc list-inside text-gray-200 mt-4 space-y-2 max-w-xl mx-auto sm:mx-0">
-            <li>Developed and maintained RESTful APIs</li>
-            <li>Built responsive user interfaces with modern JavaScript frameworks</li>
-            <li>Optimized database queries improving performance by 40%</li>
-          </ul>
-        </div>
-      </section>
+  {/* Job Entry 2 */}
+  <div className="animate-[impact_0.5s_ease-in-out]">
+    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b border-gray-600 pb-4">
+      <h3 className="text-xl font-semibold text-white">Software Engineering Intern</h3>
+      <p className="text-sm sm:text-base text-gray-300 mt-1 sm:mt-0">Flex • May 2024 – Jul 2024 • Monastir, Tunisia</p>
+    </div>
+    <ul className="list-disc list-inside text-gray-200 mt-4 space-y-2 max-w-xl mx-auto sm:mx-0">
+      <li>Created 15+ reusable React components from Figma designs for consistent UI.</li>
+      <li>Wrote 25+ tests, improving stability and reducing bugs by 20%.</li>
+      <li>Built REST APIs with Node.js/Express for dynamic frontend features.</li>
+      <li>Integrated OAuth 2.0 for secure login.</li>
+    </ul>
+  </div>
+</section>
+
 
       {/* Education Section */}
       <section className="mb-16 px-4 max-w-5xl mx-auto">
