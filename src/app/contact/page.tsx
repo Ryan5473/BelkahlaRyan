@@ -174,7 +174,7 @@ export default function ContactPage() {
         
         <div className="mt-10 text-center">
           <a
-            href="https://koalendar.com/e/meet-with-rayen-belkahla"
+            href="https://calendly.com/rayenbelkahla219/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="
