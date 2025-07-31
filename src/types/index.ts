@@ -1,10 +1,11 @@
 export interface Project {
   title: string;
+  slug: string;          // ✅ Ajouté : correspond au champ `slug` utilisé pour le routing dynamique
   description: string;
   technologies: string[];
   githubLink: string;
   image: string;
-  videoId: string;  // keep only videoId, no demoLink
+  videoId: string;
 }
 
 
