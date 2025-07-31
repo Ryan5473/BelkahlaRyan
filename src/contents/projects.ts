@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description: 'A complete doctor appointment mobile app built with React Native, featuring booking, notifications, and calendar integration.',
     technologies: ['React Native', 'Expo', 'JWT', 'Local Storage', 'Node.js'],
     githubLink: 'https://github.com/your-username/react-native-doctor-app',
-    videoId: 'LJiS1_e2nZ4',
+    videoId: '',
     image: '/projects/task-manager.webp',
   },
    {
@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description: 'A complete doctor appointment mobile app built with React Native, featuring booking, notifications, and calendar integration.',
     technologies: ['React Native', 'Expo', 'JWT', 'Local Storage', 'Node.js'],
     githubLink: 'https://github.com/your-username/react-native-doctor-app',
-    videoId: 'LJiS1_e2nZ4',
+    videoId: '',
     image: '/projects/task-manager.webp',
   },
   {
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     description: 'A scalable healthcare platform built with microservices and event-driven architecture.',
     technologies: ['Spring Boot', 'React.js', 'Postgres', 'Microservices', 'Event-Driven Architecture'],
     githubLink: 'https://github.com/your-username/healthcare-platform',
-    videoId: 'eo17hz0IVDo',
+    videoId: '',
     image: '/healthcare.jpeg',
   },
   {
@@ -52,16 +52,8 @@ export const projects: Project[] = [
     description: 'A full-stack e-commerce application with modern technologies.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Prisma'],
     githubLink: 'https://github.com/your-username/e-commerce',
-    videoId: 'eo17hz0IVDo',
+    videoId: '',
     image: '/ecommer.jpg',
   },
-  {
-    title: 'Event Booking',
-    slug: 'event-booking',
-    description: 'An event booking system with modern stack.',
-    technologies: ['React.js', 'Node.js', 'MongoDB'],
-    githubLink: 'https://github.com/your-username/event-booking',
-    videoId: 'eo17hz0IVDo',
-    image: '/eventbook.png',
-  },
+
 ];
