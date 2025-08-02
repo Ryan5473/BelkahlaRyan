@@ -34,89 +34,120 @@ export default function Projects() {
         initial="initial"
         animate="animate"
       >
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            className="bg-white/10 dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            {/* Contenu cliquable menant à la page vidéo */}
-            <Link href={`/video/${project.slug}`} className="block hover:no-underline cursor-pointer">
-              <motion.div
-                className="aspect-video bg-gray-200 dark:bg-gray-800"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: 'spring', stiffness: 300 }}
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  className="object-cover w-full h-full"
-                  width={500}
-                  height={500}
-                />
-              </motion.div>
+        {projects.map((project, index) => {
+          const shouldLinkToLive =
+            project.title.toLowerCase().includes('task') ||
+            project.title.toLowerCase().includes('focus');
 
-              <div className="p-6">
-                <motion.h3
-                  className="text-xl font-semibold mb-2 text-white"
-                  whileHover={{ x: 5 }}
+          const cardHref = shouldLinkToLive && project.liveDemo
+            ? project.liveDemo
+            : `/video/${project.slug}`;
+
+          const isExternal = shouldLinkToLive && project.liveDemo;
+
+          const CardWrapper = isExternal ? 'a' : Link;
+
+          return (
+            <motion.div
+              key={index}
+              className="bg-white/10 dark:bg-dark/50 rounded-lg shadow-md overflow-hidden"
+              variants={fadeInUp}
+              {...cardHoverSmall}
+            >
+              <CardWrapper
+                href={cardHref}
+                {...(isExternal
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+                className="block hover:no-underline cursor-pointer"
+              >
+                <motion.div
+                  className="aspect-video bg-gray-200 dark:bg-gray-800"
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  {project.title}
-                </motion.h3>
-
-                <motion.p
-                  className="mb-4 text-white/80"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {project.description}
-                </motion.p>
-
-                <motion.div
-                  className="flex flex-wrap gap-2 mb-4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  {project.technologies.map((tech, techIndex) => (
-                    <motion.span
-                      key={techIndex}
-                      className="px-3 py-1 bg-white/10 text-white rounded-full text-sm"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      {tech}
-                    </motion.span>
-                  ))}
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover w-full h-full"
+                    width={500}
+                    height={500}
+                  />
                 </motion.div>
-              </div>
-            </Link>
 
-            {/* Lien GitHub hors du Link principal pour éviter l'imbrication <a><a> */}
-            <div
-              className="flex gap-4 items-center p-6 pt-0"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-white hover:text-primary transition-colors"
+                <div className="p-6">
+                  <motion.h3
+                    className="text-xl font-semibold mb-2 text-white"
+                    whileHover={{ x: 5 }}
+                    transition={{ type: 'spring', stiffness: 300 }}
+                  >
+                    {project.title}
+                  </motion.h3>
+
+                  <motion.p
+                    className="mb-4 text-white/80"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    {project.description}
+                  </motion.p>
+
+                  <motion.div
+                    className="flex flex-wrap gap-2 mb-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    {project.technologies.map((tech, techIndex) => (
+                      <motion.span
+                        key={techIndex}
+                        className="px-3 py-1 bg-white/10 text-white rounded-full text-sm"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+                </div>
+              </CardWrapper>
+
+              {/* GitHub + Live Demo links */}
+              <div
+                className="flex gap-4 items-center p-6 pt-0"
+                onClick={(e) => e.stopPropagation()}
               >
-                <FaGithub className="h-5 w-5" />
-                <span>Code</span>
-              </a>
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-primary transition-colors"
+                >
+                  <FaGithub className="h-5 w-5" />
+                  <span>Code</span>
+                </a>
 
-              <span className="flex items-center gap-2 text-white cursor-not-allowed opacity-50">
-                <FaExternalLinkAlt className="h-5 w-5" />
-                <span>Live Demo</span>
-              </span>
-            </div>
-          </motion.div>
-        ))}
+                {project.liveDemo ? (
+                  <a
+                    href={project.liveDemo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-white hover:text-primary transition-colors"
+                  >
+                    <FaExternalLinkAlt className="h-5 w-5" />
+                    <span>Live Demo</span>
+                  </a>
+                ) : (
+                  <span className="flex items-center gap-2 text-white cursor-not-allowed opacity-50">
+                    <FaExternalLinkAlt className="h-5 w-5" />
+                    <span>Live Demo</span>
+                  </span>
+                )}
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
     </div>
   );
